@@ -37,6 +37,7 @@ gem 'bootsnap', '>= 1.1.0', require: false
 gem 'faker'
 gem 'faraday'
 gem 'figaro'
+gem 'fast_jsonapi'
 
 group :development, :test do
   gem 'byebug', platforms: %i[mri mingw x64_mingw]
