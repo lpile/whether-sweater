@@ -4,8 +4,12 @@ class GoogleService
     @key = {key: ENV['GOOGLE_API_KEY']}
   end
 
-  def lat_long_search
+  def get_latlong
     get_json('/maps/api/geocode/json')[:results].first[:geometry][:location]
+  end
+
+  def get_location
+    get_json('/maps/api/geocode/json')[:results].first[:formatted_address]
   end
 
   private
