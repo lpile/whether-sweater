@@ -1,9 +1,12 @@
 require 'rails_helper'
 
 describe "Forecast API", type: :request do
+
+  let(:content_type) { {'Content-Type': 'application/json', 'Accept': 'application/json'} }
+
   it "returns json weather information for a location" do
 
-    get '/api/v1/forecast?location=denver,co'
+    get '/api/v1/forecast?location=denver,co', headers: content_type
 
     expect(response).to be_successful
 
