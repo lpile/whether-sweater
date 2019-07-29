@@ -4,6 +4,6 @@ class ApplicationController < ActionController::Base
   private
 
   def restrict_content_type
-      render json: {msg:  'Content-Type must be application/json'}, status: 406 unless request.content_type == 'application/json'
+    render json: {error:  'Content-Type must be application/json'}, status: 406 unless request.content_type == 'application/json'
   end
 end
