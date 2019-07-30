@@ -19,4 +19,11 @@ RSpec.describe GoogleService, type: :service do
 
     expect(result).to eq('Denver, CO, USA')
   end
+
+  it 'get_direction returns start location, end location, and time travel' do
+    result = service.get_direction({origin: 'denver,co', destination: 'pueblo,co'})
+
+    expect(result).to have_key(:legs)
+    expect(result[:legs].first).to have_key(:duration)
+  end
 end
