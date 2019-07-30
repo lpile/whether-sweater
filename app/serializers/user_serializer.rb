@@ -9,7 +9,11 @@ class UserSerializer
     { api_key: user.api_key }
   end
 
-  def error_response
+  def register_error_response
     { error: 'Failed to register.' }
+  end
+
+  def login_error_response
+    { error: 'Failed to login.' }
   end
 end

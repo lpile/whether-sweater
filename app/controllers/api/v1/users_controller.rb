@@ -4,7 +4,7 @@ class Api::V1::UsersController < ApplicationController
     if user.save
       render json: UserSerializer.new(user).api_key_response, status: 201
     else
-      render json: UserSerializer.new.error_response, status: 406
+      render json: UserSerializer.new.register_error_response, status: 406
     end
   end
 
