@@ -12,9 +12,19 @@ class GoogleService
     get_json('/maps/api/geocode/json')[:results].first[:formatted_address]
   end
 
+  def get_direction(filter)
+    @filter = {
+      origin: filter[:origin],
+      destination: filter[:destination]
+    }
+
+    get_json('/maps/api/directions/json')[:routes].first
+  end
+
   private
 
-    attr_reader :filter, :key
+    attr_reader :key
+    attr_accessor :filter
 
     def conn
       Faraday.new('https://maps.googleapis.com')
