@@ -19,7 +19,7 @@ class ForecastFacade
   end
 
   def dark_sky_service
-    @_dark_sky_service ||= DarkSkyService.new(google_service.get_latlong).get_weather
+    @_dark_sky_service ||= DarkSkyService.new(google_service.get_latlong).fetch_forecast
   end
 
   def forecast_response(currently, hourly, daily)

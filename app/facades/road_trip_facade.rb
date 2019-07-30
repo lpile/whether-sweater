@@ -24,7 +24,7 @@ class RoadTripFacade
   end
 
   def get_hourly_forecast
-    @_get_hourly_forecast ||= dark_sky_service.get_weather[:hourly][:data]
+    @_get_hourly_forecast ||= dark_sky_service.fetch_forecast[:hourly][:data]
   end
 
   def direction_data
