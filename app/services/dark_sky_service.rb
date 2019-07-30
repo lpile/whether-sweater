@@ -1,30 +1,24 @@
 class DarkSkyService
+
   def initialize(filter = {})
-    @filter = filter
+    @latitude = filter[:lat]
+    @longitude = filter[:lng]
   end
 
-  def get_weather
+  def fetch_forecast
     get_json("/forecast/#{ENV['DARKSKY_SECRET_KEY']}/#{latitude},#{longitude}")
   end
 
   private
 
-    attr_reader :filter
+  attr_reader :latitude, :longitude
 
-    def conn
-      Faraday.new('https://api.darksky.net')
-    end
+  def conn
+    Faraday.new('https://api.darksky.net')
+  end
 
-    def get_json(url)
-      response = conn.get(url)
-      JSON.parse(response.body, symbolize_names: true)
-    end
-
-    def latitude
-      @filter[:lat]
-    end
-
-    def longitude
-      @filter[:lng]
-    end
+  def get_json(url)
+    response = conn.get(url, {exclude: 'minutely,alerts,flags'})
+    JSON.parse(response.body, symbolize_names: true)
+  end
 end
