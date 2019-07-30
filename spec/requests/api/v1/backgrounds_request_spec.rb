@@ -16,16 +16,4 @@ describe "Backgrounds API", type: :request do
     expect(result['data']).to have_key('image_url')
 
   end
-
-  it "returns status code 406 if content type is not application/json'" do
-
-    get '/api/v1/backgrounds?location=denver,co'
-
-    result = JSON.parse(response.body)
-
-    expect(response).to have_http_status(406)
-    expect(result).to have_key('error')
-    expect(result['error']).to eq('Content-Type must be application/json')
-
-  end
 end

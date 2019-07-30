@@ -37,16 +37,4 @@ describe "RoadTrip API", type: :request do
     expect(result['error']).to eq('No api key.')
 
   end
-
-  it "returns status code 406 if content type is not application/json'" do
-
-    post '/api/v1/road_trip', params: body.to_json
-
-    result = JSON.parse(response.body)
-
-    expect(response).to have_http_status(406)
-    expect(result).to have_key('error')
-    expect(result['error']).to eq('Content-Type must be application/json')
-
-  end
 end

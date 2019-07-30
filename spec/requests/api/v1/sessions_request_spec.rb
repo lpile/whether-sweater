@@ -36,16 +36,4 @@ describe 'Sessions API', type: :request do
     expect(result['error']).to eq('Failed to login.')
 
   end
-
-  it "returns status code 406 if content type is not application/json'" do
-
-    post '/api/v1/sessions', params: user.to_json
-
-    result = JSON.parse(response.body)
-
-    expect(response).to have_http_status(406)
-    expect(result).to have_key('error')
-    expect(result['error']).to eq('Content-Type must be application/json')
-
-  end
 end
