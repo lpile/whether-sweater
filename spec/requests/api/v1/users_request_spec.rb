@@ -16,8 +16,9 @@ describe 'Users API', type: :request do
 
     user_output = User.last
 
-    expect(result).to have_key('api_key')
-    expect(result['api_key']).to eq(user_output.api_key)
+    expect(result).to have_key('data')
+    expect(result['data']).to have_key('attributes')
+    expect(result['data']['attributes']['api_key']).to eq(user_output.api_key)
     expect(user_output.email).to eq(user1[:email])
   end
 

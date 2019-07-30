@@ -6,7 +6,6 @@ describe 'Sessions API', type: :request do
   let(:user) { {'email': 'whatever@example.com', 'password': 'password'} }
 
   it 'returns json api key to user for logging in' do
-
     User.create!(email: 'whatever@example.com', password: 'password', password_confirmation: 'password')
 
     post '/api/v1/sessions', params: user.to_json, headers: content_type
@@ -18,14 +17,13 @@ describe 'Sessions API', type: :request do
 
     user_output = User.last
 
-    expect(result).to have_key('api_key')
-    expect(result['api_key']).to eq(user_output.api_key)
+    expect(result).to have_key('data')
+    expect(result['data']).to have_key('attributes')
+    expect(result['data']['attributes']['api_key']).to eq(user_output.api_key)
     expect(user_output.email).to eq(user[:email])
-
   end
 
-  it 'returns json error message if user fails to register' do
-
+  it 'returns json error message if user fails to login' do
     post '/api/v1/sessions', params: user.to_json, headers: content_type
 
     expect(response).to have_http_status(406)
@@ -34,6 +32,5 @@ describe 'Sessions API', type: :request do
 
     expect(result).to have_key('error')
     expect(result['error']).to eq('Failed to login.')
-
   end
 end

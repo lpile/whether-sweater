@@ -4,7 +4,7 @@ class FlickrService
     @params = {
       api_key: ENV['FLICKR_API_KEY'],
       method: 'flickr.photos.search',
-      text: image_query,
+      text: image_query + ' city',
       sort: 'interestingness-desc',
       safe_search: 1,
       content_type: 1,
@@ -12,7 +12,6 @@ class FlickrService
       has_geo: 1,
       geo_context: 2,
       extras: 'url_o',
-      per_page: 10,
       format: 'json',
       nojsoncallback: 1
     }
