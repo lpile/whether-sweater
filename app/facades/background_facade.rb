@@ -1,13 +1,10 @@
 class BackgroundFacade
-
   def initialize(photo_query)
     @photo_query = photo_query
   end
 
   def background_images
-    images.map do |image|
-      BackgroundImage.new(image)
-    end
+    images.map { |image| BackgroundImage.new(image) }
   end
 
   private

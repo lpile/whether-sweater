@@ -1,13 +1,13 @@
 require 'rails_helper'
 
-describe "RoadTrip API", type: :request do
+describe 'RoadTrip API', type: :request do
 
   let(:content_type) { {'Content-Type': 'application/json', 'Accept': 'application/json'} }
   let(:user) { User.create!(email: 'whatever@example.com', password: 'password', password_confirmation: 'password') }
   let(:body) { {'origin': 'Denver,CO', 'destination': 'Pueblo,CO', 'api_key': user.api_key} }
   let(:error) { {'origin': 'Denver,CO', 'destination': 'Pueblo,CO'} }
 
-  it "returns json hour forecast information of end destination" do
+  it 'returns json hour forecast information of end destination' do
 
     expect(user.api_key).to eq(body[:api_key])
 
@@ -25,7 +25,7 @@ describe "RoadTrip API", type: :request do
 
   end
 
-  it "returns returns json error message if theres no api key" do
+  it 'returns returns json error message if theres no api key' do
 
     post '/api/v1/road_trip', params: error.to_json, headers: content_type
 

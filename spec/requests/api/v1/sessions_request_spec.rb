@@ -5,7 +5,7 @@ describe 'Sessions API', type: :request do
   let(:content_type) { {'Content-Type': 'application/json', 'Accept': 'application/json'} }
   let(:user) { {'email': 'whatever@example.com', 'password': 'password'} }
 
-  it "returns json api key to user for logging in" do
+  it 'returns json api key to user for logging in' do
 
     User.create!(email: 'whatever@example.com', password: 'password', password_confirmation: 'password')
 
@@ -24,7 +24,7 @@ describe 'Sessions API', type: :request do
 
   end
 
-  it "returns json error message if user fails to register" do
+  it 'returns json error message if user fails to register' do
 
     post '/api/v1/sessions', params: user.to_json, headers: content_type
 
