@@ -15,7 +15,7 @@ class GoogleService
 
   def fetch_duration(params)
     @filter = { origin: params[:origin], destination: params[:destination] }
-    get_json('/maps/api/directions/json')[:routes].first[:legs].first[:duration]
+    get_json('/maps/api/directions/json')[:routes].first[:legs].first
   end
 
   private

@@ -9,6 +9,10 @@ class DarkSkyService
     get_json("/forecast/#{ENV['DARKSKY_SECRET_KEY']}/#{latitude},#{longitude}")
   end
 
+  def fetch_future_forecast(time)
+    get_json("/forecast/#{ENV['DARKSKY_SECRET_KEY']}/#{latitude},#{longitude},#{time}")
+  end
+
   private
 
   attr_reader :latitude, :longitude

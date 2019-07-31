@@ -7,8 +7,7 @@ describe 'RoadTrip API', type: :request do
   let(:body) { {'origin': 'Denver,CO', 'destination': 'Pueblo,CO', 'api_key': user.api_key} }
   let(:error) { {'origin': 'Denver,CO', 'destination': 'Pueblo,CO'} }
 
-  it 'returns json hour forecast information of end destination' do
-
+  it 'returns json future forecast information of end destination' do
     expect(user.api_key).to eq(body[:api_key])
 
     post '/api/v1/road_trip', params: body.to_json, headers: content_type
@@ -19,14 +18,13 @@ describe 'RoadTrip API', type: :request do
     result = JSON.parse(response.body)
 
     expect(result).to have_key('data')
-    expect(result['data']).to have_key('estimated_travel_time')
-    expect(result['data']).to have_key('hourly')
-    expect(result['data']['estimated_travel_time']).to eq('1 hour 47 mins')
-
+    expect(result['data']).to have_key('attributes')
+    expect(result['data']['attributes']).to have_key('currently')
+    expect(result['data']['attributes']['currently']['location']).to eq('Pueblo, CO, USA')
+    expect(result['data']['attributes']['currently']['estimated_travel_time']).to eq('1 hour 47 mins')
   end
 
   it 'returns returns json error message if theres no api key' do
-
     post '/api/v1/road_trip', params: error.to_json, headers: content_type
 
     expect(response).to have_http_status(401)
@@ -35,6 +33,5 @@ describe 'RoadTrip API', type: :request do
 
     expect(result).to have_key('error')
     expect(result['error']).to eq('No api key.')
-
   end
 end

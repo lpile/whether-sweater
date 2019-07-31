@@ -4,7 +4,7 @@ class Api::V1::SessionsController < ApplicationController
     if user&.authenticate(params[:password])
       render json: UserSerializer.new(user), status: 200
     else
-      render json: {error: 'Failed to login.'}, status: 406
+      render json: { error: 'Failed to login.' }, status: 406
     end
   end
 end

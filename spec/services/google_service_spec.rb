@@ -24,7 +24,8 @@ RSpec.describe GoogleService, type: :service do
   it 'fetch_duration returns time travel text and unix time' do
     result = service.fetch_duration({origin: 'denver,co', destination: 'pueblo,co'})
 
-    expect(result).to have_key(:text)
-    expect(result).to have_key(:value)
+    expect(result).to have_key(:distance)
+    expect(result).to have_key(:end_address)
+    expect(result).to have_key(:end_location)
   end
 end
