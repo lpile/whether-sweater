@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-describe 'RoadTrip API', :vcr, type: :request do
+describe 'RoadTrip API', vcr: { :record => :new_episodes }, type: :request do
 
   let(:content_type) { {'Content-Type': 'application/json', 'Accept': 'application/json'} }
   let(:user) { User.create!(email: 'whatever@example.com', password: 'password', password_confirmation: 'password') }
