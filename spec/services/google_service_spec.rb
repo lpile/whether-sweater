@@ -1,6 +1,6 @@
 require "rails_helper"
 
-RSpec.describe GoogleService, type: :service do
+RSpec.describe GoogleService, :vcr, type: :service do
 
   let(:service) { GoogleService.new(address: 'denver, co') }
 

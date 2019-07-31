@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-describe 'Background API', type: :request do
+describe 'Background API', :vcr, type: :request do
   it 'returns json array of images with alt and url for a location' do
     get '/api/v1/backgrounds?location=denver,co'
 

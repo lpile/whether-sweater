@@ -1,6 +1,6 @@
 require "rails_helper"
 
-RSpec.describe DarkSkyService, type: :service do
+RSpec.describe DarkSkyService, :vcr, type: :service do
 
   let(:params) { {lat: 39.7392358, lng: -104.990251} }
   let(:service) { DarkSkyService.new(params) }

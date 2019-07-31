@@ -1,6 +1,6 @@
 require "rails_helper"
 
-RSpec.describe FlickrService, type: :service do
+RSpec.describe FlickrService, :vcr, type: :service do
 
   let(:service) { FlickrService.new('denver, co') }
 
