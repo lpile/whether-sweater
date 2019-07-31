@@ -1,1 +1,56 @@
-<h1>Welcome</h1>
+<h1>Whether-Sweater</h1>
+<p>
+Welcome to Whether-Sweater, a RESTful JSON API designed to expose endpoints to display weather for different cities, create and login users, and find forecast for future road trip which to be consumed by a hypothetical front end. It consumes the Dark Sky API for gathering weather data, parses it and returns only what is expected in the project specifications. Location data is parsed from a user friendly city, address, or location by Google Cloud Service's Geocoding API into latitude and longitude.</p>
+
+<h3>Available Endpoints:</h3>
+
+<h4>GET /api/v1/forecast?location=denver,co</h4>
+<p>Headers:</p>
+<p>Content-Type: application/json</p>
+<p>Accept: application/json</p>
+
+<br>
+<h4>GET /api/v1/backgrounds?location=denver,co</h4>
+<p>Headers:</p>
+<p>Content-Type: application/json</p>
+<p>Accept: application/json</p>
+
+<br>
+<h4>POST /api/v1/users</h4>
+<p>Headers:</p>
+<p>Content-Type: application/json</p>
+<p>Accept: application/json</p>
+
+<p>Body:</p>
+{
+  "email": "my_email@example.com",
+  "password": "password"
+  "password_confirmation": "password"
+}
+
+<br>
+<br>
+<h4>POST /api/v1/sessions</h4>
+<p>Headers:</p>
+<p>Content-Type: application/json</p>
+<p>Accept: application/json</p>
+
+<p>Body:<p>
+{
+  "email": "my_email@example.com",
+  "password": "password"
+}
+
+<br>
+<br>
+<h4>POST /api/v1/road_trip</h4>
+<p>Content-Type: application/json</p>
+<p>Accept: application/json</p>
+
+<p>body:</p>
+
+{
+  "origin": "Denver,CO",
+  "destination": "Pueblo,CO",
+  "api_key": "jgn983hy48thw9begh98h4539h4"
+}
