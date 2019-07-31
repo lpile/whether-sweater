@@ -1,19 +1,19 @@
 class FlickrService
-
   def initialize(image_query)
     @params = {
       api_key: ENV['FLICKR_API_KEY'],
       method: 'flickr.photos.search',
-      text: image_query + ' city',
       sort: 'interestingness-desc',
       safe_search: 1,
       content_type: 1,
       accuracy: 11,
       has_geo: 1,
-      geo_context: 2,
-      extras: 'url_o',
       format: 'json',
-      nojsoncallback: 1
+      nojsoncallback: 1,
+      tags: "#{image_query}, skyline",
+      tag_mode: 'all',
+      in_gallery: 'true',
+      per_page: 10
     }
   end
 

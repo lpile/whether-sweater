@@ -8,7 +8,7 @@ RSpec.describe FlickrService, type: :service do
     expect(service).to be_a FlickrService
   end
 
-  it '#fetch_images returns an array of locations images' do
+  it 'fetch_images returns an array of locations images' do
     result = service.fetch_images
 
     expect(result).to have_key(:photos)
