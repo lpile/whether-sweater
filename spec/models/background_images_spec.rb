@@ -1,22 +1,16 @@
 require 'spec_helper'
 require './app/models/background_image'
 
-RSpec.describe BackgroundImage do
+RSpec.describe BackgroundImage, vcr: { :record => :new_episodes }, type: :model do
+
+  let(:service) { FlickrService.new('denver,co') }
+  let(:image) { service.fetch_images[:photos][:photo].first }
+  let(:url) { "https://www.flickr.com/photos/#{image[:owner]}/#{image[:id]}" }
+
   it 'has attributes' do
-    title = 'Title'
-    owner = 'bob'
-    id = '123'
-    url = "https://www.flickr.com/photos/#{owner}/#{id}"
+    background = BackgroundImage.new(image)
 
-    image_details = {
-      title: title,
-      owner: owner,
-      id: id
-    }
-
-    background = BackgroundImage.new(image_details)
-
-    expect(background.alt).to eq(title)
+    expect(background.alt).to eq(image[:title])
     expect(background.url).to eq(url)
   end
 end
