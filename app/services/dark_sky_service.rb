@@ -1,5 +1,4 @@
 class DarkSkyService
-
   def initialize(filter = {})
     @latitude = filter[:lat]
     @longitude = filter[:lng]

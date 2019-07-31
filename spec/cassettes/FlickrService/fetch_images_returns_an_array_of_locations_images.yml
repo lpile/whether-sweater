@@ -1,0 +1,59 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://api.flickr.com/services/rest?accuracy=11&api_key=<FLICKR_API_KEY>&content_type=1&format=json&has_geo=1&in_gallery=true&method=flickr.photos.search&nojsoncallback=1&per_page=10&safe_search=1&sort=interestingness-desc&tag_mode=all&tags=denver,%20co,%20skyline
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Faraday v0.15.4
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Type:
+      - application/json
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
+      Vary:
+      - Accept-Encoding
+      Date:
+      - Wed, 31 Jul 2019 04:55:07 GMT
+      Server:
+      - Apache/2.4.39 (Ubuntu)
+      X-Content-Type-Options:
+      - nosniff
+      X-Frame-Options:
+      - SAMEORIGIN
+      X-Cache:
+      - Miss from cloudfront
+      Via:
+      - 1.1 b112099a211ab81d3a50756cb5a11036.cloudfront.net (CloudFront)
+      X-Amz-Cf-Pop:
+      - DFW3
+      X-Amz-Cf-Id:
+      - gd2pO7IHyZ2rVXbohByHkJjFHEDRFNP2WEm2YONsWjjC8-1xPntR1w==
+    body:
+      encoding: ASCII-8BIT
+      string: '{"photos":{"page":1,"pages":10,"perpage":10,"total":"100","photo":[{"id":"39910698973","owner":"32411159@N05","secret":"532368e033","server":"4912","farm":5,"title":"Coors
+        Field with Downtown Denver in background","ispublic":1,"isfriend":0,"isfamily":0},{"id":"44745083210","owner":"47224811@N00","secret":"87fabd42d4","server":"7902","farm":8,"title":"Denver,
+        Colorado Skyline","ispublic":1,"isfriend":0,"isfamily":0},{"id":"44127974920","owner":"90598485@N03","secret":"32627f2a54","server":"4895","farm":5,"title":"Downtown
+        Denver, CO","ispublic":1,"isfriend":0,"isfamily":0},{"id":"38148198646","owner":"111245738@N08","secret":"22a3fe8621","server":"4530","farm":5,"title":"Denver
+        Skyline","ispublic":1,"isfriend":0,"isfamily":0},{"id":"35938013420","owner":"51794880@N07","secret":"f68e00f1ba","server":"4326","farm":5,"title":"Looking
+        Down on Denver","ispublic":1,"isfriend":0,"isfamily":0},{"id":"35362386895","owner":"17728900@N00","secret":"35e6aefac0","server":"4241","farm":5,"title":"DSCF2890_v3","ispublic":1,"isfriend":0,"isfamily":0},{"id":"25761730442","owner":"111245738@N08","secret":"20f208e42d","server":"1501","farm":2,"title":"Denver
+        Sunset","ispublic":1,"isfriend":0,"isfamily":0},{"id":"25755887011","owner":"56181704@N00","secret":"38098baa50","server":"1611","farm":2,"title":"Denver
+        skyline","ispublic":1,"isfriend":0,"isfamily":0},{"id":"25755781201","owner":"56181704@N00","secret":"9909bdc540","server":"1712","farm":2,"title":"Denver
+        skyline","ispublic":1,"isfriend":0,"isfamily":0},{"id":"18941059216","owner":"27656681@N00","secret":"73d113b5c8","server":"496","farm":1,"title":"Denver
+        Skyline","ispublic":1,"isfriend":0,"isfamily":0}]},"stat":"ok"}'
+    http_version: 
+  recorded_at: Wed, 31 Jul 2019 04:55:04 GMT
+recorded_with: VCR 5.0.0

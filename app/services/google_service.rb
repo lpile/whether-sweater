@@ -1,5 +1,4 @@
 class GoogleService
-
   def initialize(filter = {})
     @filter = filter
     @key = { key: ENV['GOOGLE_API_KEY'] }
